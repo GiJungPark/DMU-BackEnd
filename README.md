@@ -15,8 +15,8 @@
 <img width="800" alt="DMforU 아키텍처" src="https://github.com/user-attachments/assets/dd70b92a-f255-42d6-93e3-9c7a6ff20688">
 
 ### Project
-<img height="230" alt="API 서버 아키텍처" src="https://github.com/user-attachments/assets/96102a3a-18e2-4667-ab6b-fc93df4e7831">
-<img height="230" alt="Admin 서버 아키텍처" src="https://github.com/user-attachments/assets/4e92e493-3510-40c3-8ec7-b147378190b3">
+<img width="700" alt="API 서버 아키텍처" src="https://github.com/user-attachments/assets/96102a3a-18e2-4667-ab6b-fc93df4e7831">
+<img width="700" alt="Admin 서버 아키텍처" src="https://github.com/user-attachments/assets/4e92e493-3510-40c3-8ec7-b147378190b3">
 
 <br>
 
