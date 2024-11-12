@@ -1,6 +1,14 @@
 # DMU-BackEnd
 동양미래대학교 홈페이지의 정보들을 활용하여 더 나은 편리성을 제공하기 위해 만들어진 API 서버입니다. <br>
 
+## 목차
+[1. 주요 기능](#주요-기능) <br>
+[2. 기여 내용](#기여-내용) <br>
+[3. 아쉬운 점](#아쉬운-점) <br>
+[4. 기록](#기록)
+
+<br>
+
 ## 주요 기능
 - 원하는 학과, 키워드에 해당하는 대학 공지를 알림으로 받아볼 수 있습니다.
   - 각각의 알림은 ON / OFF 할 수 있습니다.
@@ -18,6 +26,7 @@
 <img width="700" alt="API 서버 아키텍처" src="https://github.com/user-attachments/assets/96102a3a-18e2-4667-ab6b-fc93df4e7831">
 <img width="700" alt="Admin 서버 아키텍처" src="https://github.com/user-attachments/assets/4e92e493-3510-40c3-8ec7-b147378190b3">
 
+<br>
 <br>
 
 ## 기여 내용
