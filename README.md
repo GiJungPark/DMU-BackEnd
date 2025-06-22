@@ -1,40 +1,93 @@
+# DMU-BackEnd
+
+대학교 홈페이지에 공지사항이 올라오면 자동으로 푸시 알림을 전송하는 서비스입니다.
+
+현재 약 700명 이상의 사용자를 확보했으며, 지속적으로 개선하며 운영 중입니다.
+
+---
+
 ## 목차
 
-### Release Note
+- [아키텍처](#아키텍처)  
+  - [Infrastructure](#infrastructure)  
+  - [API 프로젝트](#api-프로젝트)  
+  - [Admin 프로젝트](#admin-프로젝트)  
+- [기술 스택](#기술-스택)  
+- [릴리즈 노트](#릴리즈-노트)  
+- [개발 경험](#개발-경험)  
+- [개선 경험](#개선-경험)  
+- [트러블 슈팅](#트러블-슈팅)  
+- [블로그 포스팅](#블로그-포스팅)
 
-1. [Release 1.0.0 (2024.01 ~ 2024.04) - 개발 후 출시](#release-100-202401--202404---개발-후-출시)
-2. [Release 1.0.1 (2024.05) - 버그 수정](#release-101-202405---버그-수정)
-3. [Release 1.1.0 (2024.07) - 서비스 개선](#release-110-202407---서비스-개선)
-4. [Release 1.1.1 (2024.09) - 버그 수정](#release-111-202409---버그-수정)
-5. [Release 1.2.0 (2024.10 ~ 2024.11) - 아키텍처 개선](#release-120-202410--202411---아키텍처-개선)
-6. [Release 1.2.1 (2025.02 ~ 진행중) - 학과명 변경 및 신설 학과 대응](#release-121-202502--진행중---학과명-변경-및-신설-학과-대응)
+---
 
-Release 1.0.0 ~ 1.1.1의 소스 코드는 [해당 프로젝트](https://github.com/TeamDMU/DMU-BackEnd2)를 참고해주세요.
+## 아키텍처
 
-### 개발 경험
+### Infrastructure  
+<img width="700" alt="DMforU Infrastructure" src="https://github.com/user-attachments/assets/dd70b92a-f255-42d6-93e3-9c7a6ff20688">
 
-1. [대학교 홈페이지 스크래핑 로직 개발](#대학교-홈페이지-스크래핑-로직-개발-공지사항-학사일정-식단표)
+### API 프로젝트  
+<img width="700" alt="DMforU API Architecture" src="https://github.com/user-attachments/assets/96102a3a-18e2-4667-ab6b-fc93df4e7831">
+
+### Admin 프로젝트  
+<img width="700" alt="DMforU Admin Architecture" src="https://github.com/user-attachments/assets/4e92e493-3510-40c3-8ec7-b147378190b3">
+
+---
+
+## 기술 스택
+
+- **Languages & Frameworks:** Kotlin 1.9.25, Spring Boot 3.3.4  
+- **Database:** MySQL 8.0.35, MongoDB 7.0.15  
+- **Infrastructure:** AWS (EC2, RDS, SQS, Lambda), Docker  
+- **CI/CD & Monitoring:** Jenkins, GitHub Actions, Prometheus, Grafana  
+- **Testing & Quality:** JUnit5, JaCoCo, Codecov  
+
+---
+
+## 릴리즈 노트
+
+1. **[Release 1.0.0 (2024.01 ~ 2024.04) - 개발 및 출시](#release-100-202401--202404---개발-후-출시)**  
+2. **[Release 1.0.1 (2024.05) - 버그 수정](#release-101-202405---버그-수정)**  
+3. **[Release 1.1.0 (2024.07) - 서비스 개선](#release-110-202407---서비스-개선)**  
+4. **[Release 1.1.1 (2024.09) - 버그 수정](#release-111-202409---버그-수정)**  
+5. **[Release 1.2.0 (2024.10 ~ 2024.11) - 아키텍처 개선](#release-120-202410--202411---아키텍처-개선)**  
+6. **[Release 1.2.1 (2025.02 ~ 2025.03) - 학과명 변경 및 신설 학과 대응](#release-121-202502--202503---학과명-변경-및-신설-학과-대응)**  
+7. **[Release 1.2.2 (2025.03) - 학교 홈페이지 리뉴얼 대응](#release-122-202503---학교-홈페이지-리뉴얼에-따른-대응)**
+
+> *Release 1.0.0 ~ 1.1.1 소스 코드는 [GitHub 프로젝트](https://github.com/TeamDMU/DMU-BackEnd2)에서 확인 가능합니다.*
+
+---
+
+## 개발 경험
+
+1. [대학교 홈페이지 스크래핑 로직 개발 (공지사항, 학사일정, 식단표)](#대학교-홈페이지-스크래핑-로직-개발-공지사항-학사일정-식단표)
 2. [공지사항, 학사일정, 식단표 조회 API 개발](#공지사항-학사일정-식단표-조회-api-개발)
 3. [CI/CD 파이프라인 구축](#cicd-파이프라인-구축)
-4. [Java에서 Kotlin으로 변경](#java에서-kotlin으로-변경)
+4. [Java에서 Kotlin으로 마이그레이션 및 리팩토링](#java에서-kotlin으로-변경)
 
-### 개선 경험
+---
+
+## 개선 경험
 
 1. [API 리팩토링 (Restful API 적용)](#api-리팩토링-restful-api-적용)
-2. [알림 설정 API 성능 개선](#알림-설정-api-성능-개선)
+2. [알림 설정 API 성능 99% 개선](#알림-설정-api-성능-개선)
 3. [단일 모듈에서 멀티 모듈을 적용하여 아키텍처를 변경](#단일-모듈에서-멀티-모듈을-적용하여-아키텍처를-변경)
 4. [API 서버와 Admin 서버 분리](#api-서버와-admin-서버-분리)
 5. [세컨더리 인덱스를 추가하여, 쿼리 성능 최적화](#세컨더리-인덱스를-추가하여-쿼리-성능-최적화)
 
-### 트러블 슈팅
+---
+
+## 트러블 슈팅
 
 1. [식단표를 불러오지 못하는 문제](https://gijung00.notion.site/24-04-12-86671c8432714061912a9ca2032aff5e?pvs=4)
 2. [푸시 알림 24건 오전송](https://gijung00.notion.site/24-05-11-24-2edb7b1342b4495a9217c9252a8923ab?pvs=4)
 3. [FCM 토큰 유실](https://gijung00.notion.site/24-05-12-FCM-0d74ad8a6d8e48b1ad665e10c716d43d?pvs=4)
-4. [푸시 알림이 전송되지 않는 문제](#푸시-알림이-전송되지-않는-문제)
+4. [푸시 알림이 전송되지 않는 문제](#푸시-알림이-전송되지-않는-문제)  
 5. [당일이 아닌 다음날 푸시 알림이 전송되는 문제](#당일이-아닌-다음날-푸시-알림이-전송되는-문제)
 
-### 블로그 포스팅
+---
+
+## 블로그 포스팅
 
 1. [서버 앞으로의 개선 방향](https://rlwnd2577.tistory.com/entry/DMforU-%EC%84%9C%EB%B2%84-%EC%95%9E%EC%9C%BC%EB%A1%9C%EC%9D%98-%EA%B0%9C%EC%84%A0-%EB%B0%A9%ED%96%A5)
 2. [Kotlin + Spring / Multi-Module 적용](https://rlwnd2577.tistory.com/entry/DMforU-Kotlin-Spring-Mutli-Module-%EC%A0%81%EC%9A%A9)
@@ -47,6 +100,8 @@ Release 1.0.0 ~ 1.1.1의 소스 코드는 [해당 프로젝트](https://github.c
 9. [MySQL 세컨더리 인덱스를 활용한 성능 개선](https://rlwnd2577.tistory.com/entry/DMforU-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 
 ---
+
+# Release Note 상세 내역
 
 ## Release 1.0.0 (2024.01 ~ 2024.04) - 개발 후 출시
 
@@ -151,7 +206,7 @@ Release 1.0.0 ~ 1.1.1의 소스 코드는 [해당 프로젝트](https://github.c
 
 ---
 
-## Release 1.2.1 (2025.02 ~ 진행중) - 학과명 변경 및 신설 학과 대응
+## Release 1.2.1 (2025.02 ~ 2025.03) - 학과명 변경 및 신설 학과 대응
 
 ### 학과명 변경에 따른 API 요청 값 대응
 
@@ -162,3 +217,12 @@ Release 1.0.0 ~ 1.1.1의 소스 코드는 [해당 프로젝트](https://github.c
 ### 신설 학과 대응
 
 - 신설 학과 공지사항의 스크래핑 로직을 추가 작성
+
+---
+
+## Release 1.2.2 (2025.03) - 학교 홈페이지 리뉴얼에 따른 대응
+
+### 학교 홈페이지 HTML 구조 변경 대응
+
+- CSS만 변경될 것으로 예상되었지만, HTML 구조도 전부 변경되어서 스크래핑 로직에서 에러가 발생한다는 사실을 모니터링을 통해서 확인
+- 변경된 학교 홈페이지 HTML구조를 분석하고, 스크래핑 로직을 일괄 수정
